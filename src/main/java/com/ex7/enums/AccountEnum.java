@@ -12,5 +12,4 @@ public enum AccountEnum {
         this.password = password;
         this.user = user;
     }
-
 }
