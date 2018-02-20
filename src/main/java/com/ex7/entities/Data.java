@@ -12,7 +12,6 @@ public class Data extends DataClass {
     private MetalsEnum metals;
     private List<SaladEnum> salad;
 
-
     public Data(List<NumbersEnum> summary, List<ElementsEnum> elements, ColoursEnum colour, MetalsEnum metals, List<SaladEnum> salad) {
         this.summary = summary;
         this.elements = elements;
