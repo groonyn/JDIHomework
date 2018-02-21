@@ -29,6 +29,7 @@ public class MainPage extends WebPage {
         metalColourLink.click();
     }
 
+    // TODO Form<User> required
     public MainPage login(String login, String password) {
         this.clickLoginButton();
         this.login.input(login);

@@ -77,6 +77,8 @@ public class MetalColoursPage extends WebPage {
 
             if (value.contains(",")) {
                 List<String> listValue = Arrays.asList(value.split(", "));
+                // TODO you should not modify entity inside of Lambda expression.
+                // TODO moreover, take a look on IDEA warning...
                 listValue.forEach(v -> actualResultList.add(v));
 
             } else {
