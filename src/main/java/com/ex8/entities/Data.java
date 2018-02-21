@@ -2,6 +2,7 @@ package com.ex8.entities;
 
 import java.util.List;
 
+// TODO lombok ?
 public class Data {
     private List<Integer> summary;
     private List<String> elements;

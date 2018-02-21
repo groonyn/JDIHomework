@@ -15,6 +15,8 @@ import java.util.List;
 
 public class Utils {
     public static List<Data> jsonGetData() throws IOException {
+        // TODO do you have a chance to read IDEA warning ?
+        // TODO it is not really good to use deprecated methods...
         String s = Files.toString(new File("src\\main\\resources\\ex8_jdi_metalsColorsDataSet.json"), Charset.defaultCharset());
         Gson gson = new Gson();
         Type type = new TypeToken<LinkedTreeMap<String, Data>>() {

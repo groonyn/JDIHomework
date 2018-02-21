@@ -29,6 +29,9 @@ public class LoginTestDataProvider extends TestNGBase {
     @BeforeMethod
     public void setUpMethod() {
         mainPage.open();
+        // TODO builder pattern is okay, but
+        // TODO 1. where is Entity Driving Testing approach ?
+        // TODO 2. you should open the page via Menu class instead of direct link...
         mainPage.login(PITER_CHAILOVSKI.login, PITER_CHAILOVSKI.password).clickMetalColourLink();
         metalColoursPage.checkOpened();
     }
@@ -45,6 +48,7 @@ public class LoginTestDataProvider extends TestNGBase {
 
     @Test(dataProvider = "data")
     public void login(Data data) {
+        // TODO you should use Entity Driving testing, Form, Entities and so on...
         metalColoursPage.clickRadioButtons(data.getSummary());
         metalColoursPage.clickRadioButtons(data.getSummary());
         metalColoursPage.clickCheckboxButtons(data.getElements());
@@ -55,6 +59,7 @@ public class LoginTestDataProvider extends TestNGBase {
         metalColoursPage.checkResult(provideExpectedResult(data));
     }
 
+    // TODO this should not be here cause this method has no relation to Tests as is.
     private Map<String, Object> provideExpectedResult(Data data) {
         Map<String, Object> expectedResultMap = new HashMap<>();
         expectedResultMap.put("Summary", String.valueOf(Utils.summOfList(data.getSummary())));

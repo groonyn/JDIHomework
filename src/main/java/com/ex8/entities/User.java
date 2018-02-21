@@ -3,6 +3,7 @@ package com.ex8.entities;
 import com.epam.commons.DataClass;
 import com.ex8.enums.AccountEnum;
 
+// TODO Read IDEA warning
 public class User extends DataClass {
 
     public String login;
