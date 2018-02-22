@@ -10,11 +10,10 @@ import com.ex8.utils.Utils;
 import org.testng.annotations.*;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import static com.ex8.site.Site.mainPage;
 import static com.ex8.site.Site.metalColoursPage;
+import static com.ex8.site.pages.MetalColoursPage.provideExpectedResult;
 
 public class LoginTestDataProvider extends TestNGBase {
 
@@ -51,15 +50,5 @@ public class LoginTestDataProvider extends TestNGBase {
         metalColoursPage.clickDropdownSalad(data.getVegetables());
         metalColoursPage.clickSubmitButton();
         metalColoursPage.checkResult(provideExpectedResult(data));
-    }
-
-    private Map<String, Object> provideExpectedResult(Data data) {
-        Map<String, Object> expectedResultMap = new HashMap<>();
-        expectedResultMap.put("Summary", String.valueOf(Utils.summOfList(data.getSummary())));
-        expectedResultMap.put("Elements", data.getElements());
-        expectedResultMap.put("Color", data.getColor());
-        expectedResultMap.put("Metal", data.getMetals());
-        expectedResultMap.put("Vegetables", data.getVegetables());
-        return expectedResultMap;
     }
 }
