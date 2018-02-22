@@ -14,11 +14,10 @@ buildNumber.properties
 !/.mvn/wrapper/maven-wrapper.jar
 ### Java template
 # Compiled class file
-*.class
 
-# Log file
+# Log files
 *.log
-log.xml
+*.xml
 
 # BlueJ files
 *.ctxt
