@@ -12,9 +12,6 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 import static com.ex7.enums.AccountEnum.PITER_CHAILOVSKI;
 import static com.ex7.enums.ColoursEnum.RED;
@@ -27,16 +24,19 @@ import static com.ex7.enums.SaladEnum.CUCUMBER;
 import static com.ex7.enums.SaladEnum.TOMATO;
 import static com.ex7.site.Site.mainPage;
 import static com.ex7.site.Site.metalColoursPage;
+import static com.ex7.site.pages.MetalColoursPage.provideExpectedResult;
 import static edu.emory.mathcs.backport.java.util.Arrays.asList;
 
 public class LoginTest extends TestNGBase {
     private static Data data;
 
+    @SuppressWarnings("unchecked generics array creation")
     @BeforeSuite(alwaysRun = true)
     public static void setUp() {
         WebSite.init(Site.class);
     }
 
+    @SuppressWarnings("unchecked assigment")
     @BeforeMethod
     public void beforeMethod(Method method) {
         if (method.getName().equals("login")) {
@@ -60,14 +60,4 @@ public class LoginTest extends TestNGBase {
         metalColoursPage.checkResult(provideExpectedResult());
     }
 
-    private List<String> provideExpectedResult() {
-        List<String> expectedResult = new ArrayList<>();
-        expectedResult.add("Summary: 11");
-        expectedResult.add("Elements: Water, Fire");
-        expectedResult.add("Color: Red");
-        expectedResult.add("Metal: Selen");
-        expectedResult.add("Vegetables: Cucumber, Tomato");
-        Collections.sort(expectedResult);
-        return expectedResult;
-    }
 }
