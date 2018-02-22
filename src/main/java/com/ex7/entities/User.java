@@ -5,9 +5,9 @@ import com.ex7.enums.AccountEnum;
 
 public class User extends DataClass {
 
-    public String login;
-    public String password;
-    public String user;
+    private String login;
+    private String password;
+    private String user;
 
     public User(AccountEnum accountEnum) {
         this.login = accountEnum.login;
