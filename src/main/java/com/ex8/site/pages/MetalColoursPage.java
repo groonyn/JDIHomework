@@ -7,6 +7,8 @@ import com.epam.jdi.uitests.web.selenium.elements.complex.RadioButtons;
 import com.epam.jdi.uitests.web.selenium.elements.complex.TextList;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebPage;
 import com.epam.jdi.uitests.web.selenium.elements.pageobjects.annotations.objects.JDropdown;
+import com.ex8.entities.Data;
+import com.ex8.utils.Utils;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
@@ -62,8 +64,19 @@ public class MetalColoursPage extends WebPage {
         vegetables.forEach(vegetable -> dropdownSalad.select(vegetable));
         dropdownSalad.select("Salad");
     }
+
     public void clickSubmitButton() {
         submitButton.click();
+    }
+
+    public static Map<String, Object> provideExpectedResult(Data data) {
+        Map<String, Object> expectedResultMap = new HashMap<>();
+        expectedResultMap.put("Summary", String.valueOf(Utils.summOfList(data.getSummary())));
+        expectedResultMap.put("Elements", data.getElements());
+        expectedResultMap.put("Color", data.getColor());
+        expectedResultMap.put("Metal", data.getMetals());
+        expectedResultMap.put("Vegetables", data.getVegetables());
+        return expectedResultMap;
     }
 
     @SuppressWarnings("unchecked")
