@@ -3,33 +3,31 @@ package com.ex8;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebSite;
 import com.epam.jdi.uitests.web.testng.testRunner.TestNGBase;
 import com.ex8.entities.Data;
+import com.ex8.entities.User;
+import com.ex8.enums.AccountEnum;
 import com.ex8.site.Site;
 import com.ex8.utils.Utils;
 import org.testng.annotations.*;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import static com.ex8.enums.AccountEnum.PITER_CHAILOVSKI;
 import static com.ex8.site.Site.mainPage;
 import static com.ex8.site.Site.metalColoursPage;
 
 public class LoginTestDataProvider extends TestNGBase {
 
-    static List<Data> data;
-
+    @SuppressWarnings("unchecked generics array creation")
     @BeforeSuite(alwaysRun = true)
-    public static void setUp() throws IOException {
-
+    public static void setUp() {
         WebSite.init(Site.class);
     }
 
     @BeforeMethod
     public void setUpMethod() {
         mainPage.open();
-        mainPage.login(PITER_CHAILOVSKI.login, PITER_CHAILOVSKI.password).clickMetalColourLink();
+        mainPage.login(new User(AccountEnum.PITER_CHAILOVSKI)).clickMetalColourLink();
         metalColoursPage.checkOpened();
     }
 
@@ -48,9 +46,9 @@ public class LoginTestDataProvider extends TestNGBase {
         metalColoursPage.clickRadioButtons(data.getSummary());
         metalColoursPage.clickRadioButtons(data.getSummary());
         metalColoursPage.clickCheckboxButtons(data.getElements());
-        metalColoursPage.clickDropdownColours(data.getColour());
+        metalColoursPage.clickDropdownColours(data.getColor());
         metalColoursPage.clickDropdownMetals(data.getMetals());
-        metalColoursPage.clickDropdownSalad(data.getSalad());
+        metalColoursPage.clickDropdownSalad(data.getVegetables());
         metalColoursPage.clickSubmitButton();
         metalColoursPage.checkResult(provideExpectedResult(data));
     }
@@ -59,10 +57,9 @@ public class LoginTestDataProvider extends TestNGBase {
         Map<String, Object> expectedResultMap = new HashMap<>();
         expectedResultMap.put("Summary", String.valueOf(Utils.summOfList(data.getSummary())));
         expectedResultMap.put("Elements", data.getElements());
-        expectedResultMap.put("Color", data.getColour());
+        expectedResultMap.put("Color", data.getColor());
         expectedResultMap.put("Metal", data.getMetals());
-        expectedResultMap.put("Vegetables", data.getSalad());
+        expectedResultMap.put("Vegetables", data.getVegetables());
         return expectedResultMap;
     }
 }
-
