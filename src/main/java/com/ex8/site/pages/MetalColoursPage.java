@@ -62,11 +62,11 @@ public class MetalColoursPage extends WebPage {
         vegetables.forEach(vegetable -> dropdownSalad.select(vegetable));
         dropdownSalad.select("Salad");
     }
-
     public void clickSubmitButton() {
         submitButton.click();
     }
 
+    @SuppressWarnings("unchecked")
     public void checkResult(Map<String, Object> expectedResult) {
         List<String> actualResultList = new ArrayList<>();
         List<String> expectedResultList = new ArrayList<>();
@@ -77,7 +77,7 @@ public class MetalColoursPage extends WebPage {
 
             if (value.contains(",")) {
                 List<String> listValue = Arrays.asList(value.split(", "));
-                listValue.forEach(v -> actualResultList.add(v));
+                actualResultList.addAll(listValue);
 
             } else {
                 actualResultList.add(value);
@@ -86,7 +86,7 @@ public class MetalColoursPage extends WebPage {
 
         for (Map.Entry<String, Object> entry : expectedResult.entrySet()) {
             if (entry.getValue() instanceof Iterable) {
-                ((List<String>) entry.getValue()).forEach(value -> expectedResultList.add(value));
+                expectedResultList.addAll(((List<String>) entry.getValue()));
             } else {
                 expectedResultList.add((String) entry.getValue());
             }
