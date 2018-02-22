@@ -70,6 +70,17 @@ public class MetalColoursPage extends WebPage {
         submitButton.click();
     }
 
+    public static List<String> provideExpectedResult() {
+        List<String> expectedResult = new ArrayList<>();
+        expectedResult.add("Summary: 11");
+        expectedResult.add("Elements: Water, Fire");
+        expectedResult.add("Color: Red");
+        expectedResult.add("Metal: Selen");
+        expectedResult.add("Vegetables: Cucumber, Tomato");
+        Collections.sort(expectedResult);
+        return expectedResult;
+    }
+
     public void checkResult(List<String> expectedResult) {
         List<String> actualResultsList = new ArrayList<>(actualResults.getElements().toMap().keySet());
         Collections.sort(actualResultsList);
