@@ -43,7 +43,7 @@ public class MetalColoursPage extends WebPage {
     private RadioButtons<NumbersEnum> radioNumbers;
 
     @FindBy(css = ".results li")
-    private TextList actualResults;
+    private TextList<Enum> actualResults;
 
     public void clickRadioButtons(List<NumbersEnum> numbersEnum) {
         numbersEnum.forEach(numberEnum -> radioNumbers.select(String.valueOf(numberEnum.number)));
@@ -71,8 +71,7 @@ public class MetalColoursPage extends WebPage {
     }
 
     public void checkResult(List<String> expectedResult) {
-        List<String> actualResultsList = new ArrayList();
-        actualResults.getElements().toMap().keySet().forEach(item -> actualResultsList.add((String) item));
+        List<String> actualResultsList = new ArrayList<>(actualResults.getElements().toMap().keySet());
         Collections.sort(actualResultsList);
         Assert.assertEquals(expectedResult, actualResultsList);
     }
