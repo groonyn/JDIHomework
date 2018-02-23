@@ -7,7 +7,7 @@ public enum LoginPageEnum {
     TITLE("Index Page"),
     USERNAME("PITER CHAILOVSKII");
 
-    public final String text;
+    private final String text;
 
     LoginPageEnum(String text) {
         this.text = text;

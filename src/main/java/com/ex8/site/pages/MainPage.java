@@ -23,10 +23,9 @@ public class MainPage extends WebPage {
     @FindBy(css = ".m-l8")
     public HeaderMenu headerMenu;
 
-    public MainPage login(User user) {
+    public void login(User user) {
         loginButton.click();
         loginForm.loginAs(user);
-        return this;
     }
 
     public void logout() {
