@@ -1,18 +1,18 @@
 package com.ex8.site.pages;
 
 import com.epam.jdi.uitests.web.selenium.elements.common.Button;
-import com.epam.jdi.uitests.web.selenium.elements.common.Link;
 import com.epam.jdi.uitests.web.selenium.elements.composite.WebPage;
 import com.ex8.entities.User;
 import com.ex8.site.forms.LoginForm;
+import com.ex8.site.header.HeaderMenu;
 import org.openqa.selenium.support.FindBy;
 
 public class MainPage extends WebPage {
     @FindBy(css = ".profile-photo")
     private Button loginButton;
 
-    @FindBy(css = ".uui-header [href='page2.htm']")
-    private Link metalColourLink;
+   // @FindBy(css = ".uui-header [href='page2.htm']")
+    //private Link metalColourLink;
 
     @FindBy(css = ".logout")
     private Button logout;
@@ -20,9 +20,8 @@ public class MainPage extends WebPage {
     @FindBy(css = ".form-horizontal")
     private LoginForm loginForm;
 
-    public void clickMetalColourLink() {
-        metalColourLink.click();
-    }
+    @FindBy(css = ".m-l8")
+    public HeaderMenu headerMenu;
 
     public MainPage login(User user) {
         loginButton.click();
@@ -35,4 +34,3 @@ public class MainPage extends WebPage {
         logout.click();
     }
 }
-
