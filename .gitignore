@@ -17,7 +17,7 @@ buildNumber.properties
 
 # Log files
 *.log
-*.xml
+log.xml
 
 # BlueJ files
 *.ctxt
