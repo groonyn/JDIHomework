@@ -44,24 +44,24 @@ public class MetalColoursPage extends WebPage {
     @FindBy(css = ".results li")
     private TextList actualResults;
 
-    public void clickRadioButtons(List<Integer> numbers) {
-        numbers.forEach(number -> radioNumbers.select(String.valueOf(number)));
+    public void clickRadioButtons(Data data) {
+        data.getSummary().forEach(number -> radioNumbers.select(String.valueOf(number)));
     }
 
-    public void clickCheckboxButtons(List<String> elements) {
-        elements.forEach(element -> elementsCheckBoxList.select(element));
+    public void clickCheckboxButtons(Data data) {
+        data.getElements().forEach(element -> elementsCheckBoxList.select(element));
     }
 
-    public void clickDropdownColours(String colors) {
-        dropdownColours.select(colors);
+    public void clickDropdownColours(Data data) {
+        dropdownColours.select(data.getColor());
     }
 
-    public void clickDropdownMetals(String metals) {
-        dropdownMetals.select(metals);
+    public void clickDropdownMetals(Data data) {
+        dropdownMetals.select(data.getMetals());
     }
 
-    public void clickDropdownSalad(List<String> vegetables) {
-        vegetables.forEach(vegetable -> dropdownSalad.select(vegetable));
+    public void clickDropdownSalad(Data data) {
+        data.getVegetables().forEach(vegetable -> dropdownSalad.select(vegetable));
         dropdownSalad.select("Salad");
     }
 
