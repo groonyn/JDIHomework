@@ -44,12 +44,12 @@ public class LoginTestDataProvider extends TestNGBase {
 
     @Test(dataProvider = "data")
     public void login(Data data) {
-        metalColoursPage.clickRadioButtons(data.getSummary());
-        metalColoursPage.clickRadioButtons(data.getSummary());
-        metalColoursPage.clickCheckboxButtons(data.getElements());
-        metalColoursPage.clickDropdownColours(data.getColor());
-        metalColoursPage.clickDropdownMetals(data.getMetals());
-        metalColoursPage.clickDropdownSalad(data.getVegetables());
+        metalColoursPage.clickRadioButtons(data);
+        metalColoursPage.clickRadioButtons(data);
+        metalColoursPage.clickCheckboxButtons(data);
+        metalColoursPage.clickDropdownColours(data);
+        metalColoursPage.clickDropdownMetals(data);
+        metalColoursPage.clickDropdownSalad(data);
         metalColoursPage.clickSubmitButton();
         metalColoursPage.checkResult(provideExpectedResult(data));
     }
