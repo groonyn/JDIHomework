@@ -11,9 +11,6 @@ public class MainPage extends WebPage {
     @FindBy(css = ".profile-photo")
     private Button loginButton;
 
-   // @FindBy(css = ".uui-header [href='page2.htm']")
-    //private Link metalColourLink;
-
     @FindBy(css = ".logout")
     private Button logout;
 
