@@ -38,18 +38,19 @@ public class LoginTestMetalsColoursVegetablesProvider extends TestNGBase {
     }
 
     @Test(dataProvider = "data")
-    public void checkMetalsColoursUsability(MetalsColoursVegetables metalsColoursVegetables) {
+    public void checkMetalsColoursUsability(MetalsColoursVegetables metalsColoursVegetablesData) {
         //1 Login on JDI site as User
         Site.homePage.headerSection.login(piterChailovski);
+        Site.homePage.headerSection.checkUser(piterChailovski);
 
         //2 Open Metals & Colors page by Header headerMenu
         Site.homePage.headerSection.headerMenu.selectMenu(METALSCOLORS);
         Site.metalColoursPage.checkOpened();
 
         //3 Fill form Metals & Colors with DataProvider
-        Site.metalColoursPage.metalColoursForm.fillAndSumbit(metalsColoursVegetables);
+        Site.metalColoursPage.metalColoursForm.fillAndSumbit(metalsColoursVegetablesData);
 
         //4 Result sections should contains metalsColoursVegetables from DataProvider
-        Site.metalColoursPage.metalColoursResultSection.checkResult(provideExpectedResult(metalsColoursVegetables));
+        Site.metalColoursPage.metalColoursResultSection.checkResult(provideExpectedResult(metalsColoursVegetablesData));
     }
 }
