@@ -24,7 +24,12 @@ public class Utils {
         return new ArrayList<>(result.values());
     }
 
-    public static int summOfList(List<Integer> summary) {
-        return summary.stream().mapToInt(Integer::intValue).sum();
+    public static int summOfJsonIncomingSummary(List<Integer> summary) {
+        int sum = 0;
+        for (Integer integer : summary) {
+            int intValue = integer;
+            sum += intValue;
+        }
+        return sum;
     }
 }
