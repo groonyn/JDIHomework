@@ -10,12 +10,12 @@ import org.testng.Assert;
 import java.util.*;
 
 public class MetalColoursResultSection extends Section {
-    @FindBy(xpath = "//ul[contains(@class, 'results')]")
-    public TextList actualResultsSection;
+    @FindBy(css = ".results li")
+    private TextList actualResultsSection;
 
     public static Map<String, Object> provideExpectedResult(MetalsColoursVegetables metalsColoursVegetablesData) {
         Map<String, Object> expectedResultMap = new HashMap<>();
-        expectedResultMap.put("Summary", String.valueOf(Utils.summOfList(metalsColoursVegetablesData.getSummary())));
+        expectedResultMap.put("Summary", String.valueOf(Utils.summOfJsonIncomingSummary(metalsColoursVegetablesData.getSummary())));
         expectedResultMap.put("Elements", metalsColoursVegetablesData.getElements());
         expectedResultMap.put("Color", metalsColoursVegetablesData.getColor());
         expectedResultMap.put("Metal", metalsColoursVegetablesData.getMetals());
