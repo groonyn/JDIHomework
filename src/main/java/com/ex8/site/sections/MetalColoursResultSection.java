@@ -10,16 +10,16 @@ import org.testng.Assert;
 import java.util.*;
 
 public class MetalColoursResultSection extends Section {
-    @FindBy(css = ".results li")
-    private TextList actualResults;
+    @FindBy(xpath = "//ul[contains(@class, 'results')]")
+    public TextList actualResultsSection;
 
-    public static Map<String, Object> provideExpectedResult(MetalsColoursVegetables metalsColoursVegetables) {
+    public static Map<String, Object> provideExpectedResult(MetalsColoursVegetables metalsColoursVegetablesData) {
         Map<String, Object> expectedResultMap = new HashMap<>();
-        expectedResultMap.put("Summary", String.valueOf(Utils.summOfList(metalsColoursVegetables.getSummary())));
-        expectedResultMap.put("Elements", metalsColoursVegetables.getElements());
-        expectedResultMap.put("Color", metalsColoursVegetables.getColor());
-        expectedResultMap.put("Metal", metalsColoursVegetables.getMetals());
-        expectedResultMap.put("Vegetables", metalsColoursVegetables.getVegetables());
+        expectedResultMap.put("Summary", String.valueOf(Utils.summOfList(metalsColoursVegetablesData.getSummary())));
+        expectedResultMap.put("Elements", metalsColoursVegetablesData.getElements());
+        expectedResultMap.put("Color", metalsColoursVegetablesData.getColor());
+        expectedResultMap.put("Metal", metalsColoursVegetablesData.getMetals());
+        expectedResultMap.put("Vegetables", metalsColoursVegetablesData.getVegetables());
         return expectedResultMap;
     }
 
@@ -28,14 +28,13 @@ public class MetalColoursResultSection extends Section {
         List<String> actualResultList = new ArrayList<>();
         List<String> expectedResultList = new ArrayList<>();
 
-        for (Object item : actualResults.getElements().toMap().keySet()) {
+        for (Object item : actualResultsSection.getElements().toMap().keySet()) {
             String[] keyValueSet = ((String) item).split(": ");
             String value = keyValueSet[1];
 
             if (value.contains(",")) {
                 List<String> listValue = Arrays.asList(value.split(", "));
                 actualResultList.addAll(listValue);
-
             } else {
                 actualResultList.add(value);
             }

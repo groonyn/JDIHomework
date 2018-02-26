@@ -1,9 +1,11 @@
 package com.ex8.entities;
 
 import com.ex8.enums.AccountEnum;
+import lombok.Getter;
 
 import static com.ex8.enums.AccountEnum.PITER_CHAILOVSKI;
 
+@Getter
 public class User {
     public static final User piterChailovski = new User(PITER_CHAILOVSKI);
 
