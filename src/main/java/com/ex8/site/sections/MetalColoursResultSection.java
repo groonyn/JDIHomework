@@ -40,13 +40,13 @@ public class MetalColoursResultSection extends Section {
             }
         }
 
-        for (Map.Entry<String, Object> entry : expectedResult.entrySet()) {
-            if (entry.getValue() instanceof Iterable) {
-                expectedResultList.addAll((List<String>) entry.getValue());
+        expectedResult.forEach((key, value) -> {
+            if (value instanceof Iterable) {
+                expectedResultList.addAll((List<String>) value);
             } else {
-                expectedResultList.add((String) entry.getValue());
+                expectedResultList.add((String) value);
             }
-        }
+        });
 
         Collections.sort(expectedResultList);
         Collections.sort(actualResultList);
