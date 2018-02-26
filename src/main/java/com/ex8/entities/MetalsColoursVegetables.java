@@ -5,7 +5,7 @@ import lombok.Getter;
 import java.util.List;
 
 @Getter
-public class Data {
+public class MetalsColoursVegetables {
     private List<Integer> summary;
     private List<String> elements;
     private String color;

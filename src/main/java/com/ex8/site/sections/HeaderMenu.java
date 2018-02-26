@@ -1,4 +1,4 @@
-package com.ex8.site.header;
+package com.ex8.site.sections;
 
 import com.epam.jdi.uitests.web.selenium.elements.complex.Menu;
 import com.ex8.enums.MenuEnum;
