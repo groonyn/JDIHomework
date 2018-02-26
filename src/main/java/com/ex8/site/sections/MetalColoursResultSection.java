@@ -42,7 +42,7 @@ public class MetalColoursResultSection extends Section {
 
         for (Map.Entry<String, Object> entry : expectedResult.entrySet()) {
             if (entry.getValue() instanceof Iterable) {
-                expectedResultList.addAll(((List<String>) entry.getValue()));
+                expectedResultList.addAll((List<String>) entry.getValue());
             } else {
                 expectedResultList.add((String) entry.getValue());
             }
